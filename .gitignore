@@ -91,3 +91,6 @@ fabric.properties
 .idea/*.xml
 .idea/modules/*.iml
 .idea/modules/*.xml
+
+# Custom
+src/main/resources/application.properties
