@@ -29,3 +29,6 @@ facebook.client.authenticationScheme: query
 facebook.client.clientAuthenticationScheme: form
 facebook.resource.userInfoUri: https://graph.facebook.com/me
 ```
+
+## How to Run
+Run `LocalSocialApplication.java` and open your browser to http://localhost:8080.
