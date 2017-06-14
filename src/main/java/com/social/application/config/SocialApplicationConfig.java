@@ -62,18 +62,6 @@ public class SocialApplicationConfig extends WebSecurityConfigurerAdapter {
         return new ResourceServerProperties();
     }
 
-    @Bean
-    @ConfigurationProperties("battlenet.client")
-    public AuthorizationCodeResourceDetails battlenet() {
-        return new AuthorizationCodeResourceDetails();
-    }
-
-    @Bean
-    @ConfigurationProperties("battlenet.resource")
-    public ResourceServerProperties battlenetResource() {
-        return new ResourceServerProperties();
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -111,16 +99,6 @@ public class SocialApplicationConfig extends WebSecurityConfigurerAdapter {
         facebookFilter.setTokenServices(tokenServices);
 
         filters.add(facebookFilter);
-
-        OAuth2ClientAuthenticationProcessingFilter battlenetFilter = new OAuth2ClientAuthenticationProcessingFilter("/login/battlenet");
-        OAuth2RestTemplate battlenetTemplate = new OAuth2RestTemplate(battlenet(), oauth2ClientContext);
-        battlenetFilter.setRestTemplate(battlenetTemplate);
-
-        tokenServices = new UserInfoTokenServices(battlenetResource().getUserInfoUri(), battlenet().getClientId());
-        tokenServices.setRestTemplate(battlenetTemplate);
-        battlenetFilter.setTokenServices(tokenServices);
-
-        filters.add(battlenetFilter);
 
         compositeFilter.setFilters(filters);
 
