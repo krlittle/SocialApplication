@@ -6,6 +6,7 @@ This app will securely log into GitHub and Facebook through their respective aut
 You do not need to have developer accounts for GitHub and Facebook to make this application work. The credentials I used in this application for GitHub and Facebook belong to Spring. You can follow the example that I followed at: https://spring.io/guides/tutorials/spring-boot-oauth2/
 
 GitHub's developer portal: https://developer.github.com/
+
 Facebook's developer portal: https://developers.facebook.com/
 
 Missing from this repository is the `application.properties` file which contains the credentials I used to validate my application with the respective authentication servers.  If you wish to pick this up and use it as your own, you will need to provide an `application.properties` file under the `src/main/resources` directory.
