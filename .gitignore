@@ -94,4 +94,3 @@ fabric.properties
 
 # Custom
 src/main/resources/application.properties
-src/test/resources/application-local-secret.yml
