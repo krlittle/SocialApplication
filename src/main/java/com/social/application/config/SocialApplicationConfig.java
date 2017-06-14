@@ -112,6 +112,16 @@ public class SocialApplicationConfig extends WebSecurityConfigurerAdapter {
 
         filters.add(facebookFilter);
 
+        OAuth2ClientAuthenticationProcessingFilter battlenetFilter = new OAuth2ClientAuthenticationProcessingFilter("/login/battlenet");
+        OAuth2RestTemplate battlenetTemplate = new OAuth2RestTemplate(battlenet(), oauth2ClientContext);
+        battlenetFilter.setRestTemplate(battlenetTemplate);
+
+        tokenServices = new UserInfoTokenServices(battlenetResource().getUserInfoUri(), battlenet().getClientId());
+        tokenServices.setRestTemplate(battlenetTemplate);
+        battlenetFilter.setTokenServices(tokenServices);
+
+        filters.add(battlenetFilter);
+
         compositeFilter.setFilters(filters);
 
         return compositeFilter;
