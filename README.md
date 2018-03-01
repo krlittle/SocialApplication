@@ -1,4 +1,4 @@
-# SocialApplication
+# spring-social-web-app-example
 Using Spring Security to learn about OAuth2.
 
 This app will securely log into GitHub and Facebook through their respective authentication servers provided you can present valid credentials.
